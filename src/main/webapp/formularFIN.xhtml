@@ -6,19 +6,15 @@
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Betton's Tarif-Vergleich</title>
-
-
         <meta charset="utf-8"> </meta>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> </meta>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"></link>
         <link rel="stylesheet" href="css/cover.css"> </link>    
-
         <style>
             .bd-placeholder-img {
                 font-size: 1.125rem;
                 text-anchor: middle;
             }
-
             @media (min-width: 768px) {
                 .bd-placeholder-img-lg {
                     font-size: 3.5rem;
@@ -26,7 +22,6 @@
             }   
         </style>
         <!-- Custom styles for this template -->
-
     </h:head>
     <h:body class="text-center">
         <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column"> 
@@ -48,37 +43,19 @@
                 <br/>
                 <p class="lead">
 
-
-
-
                     <h:form>
-
                         <p:selectOneButton value="#{formControler.option}">
                             <f:selectItem itemLabel="Sehr wichtig" itemValue="2" />
                             <f:selectItem itemLabel="Mässig wichtig" itemValue="1" />
                             <f:selectItem itemLabel="Nicht wichtig" itemValue="0" />
                         </p:selectOneButton>
-
                         <br/><br/>
-
                         <h:commandButton class="btn btn-lg btn-secondary" value="Weiter" onclick="#{tarifController.findTopThree()}" action="ergebnis" >
-
-
 
                         </h:commandButton>
                         <p:spacer />
-
-
                     </h:form>
-
-
-
-
                 </p>
-            </main>
-
-
-
 
             <footer class="mastfoot mt-auto">
                 <div class="inner">

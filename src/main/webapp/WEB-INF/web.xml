@@ -22,7 +22,7 @@
         <welcome-file>faces/index.xhtml</welcome-file>
     </welcome-file-list>
     <context-param>  
-    <param-name>primefaces.Luna-Blue</param-name>  
-    <param-value>bootstrap</param-value>  
-</context-param>  
+        <param-name>primefaces.Luna-Blue</param-name>  
+        <param-value>bootstrap</param-value>  
+    </context-param>  
 </web-app>

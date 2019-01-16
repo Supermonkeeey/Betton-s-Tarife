@@ -7,6 +7,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 
@@ -14,43 +15,35 @@ import javax.faces.bean.ManagedProperty;
  *
  * @author bettin
  */
-@ManagedBean(name = "tarifController", eager = true)
+@ManagedBean
+@ApplicationScoped
 public class TarifController {
 
     //Alter
-    @ManagedProperty("#{age}")
     private int age;
 
     //Dauer (Egal/12/24)
-    @ManagedProperty("#{duration}")
     private int duration = 24;
 
     //Telefonieren Inland
-    @ManagedProperty("#{opinion02}")
     private int opinion02 = 9;
 
     //SMS/MMS Inland 
-    @ManagedProperty("#{opinion03}")
     private int opinion03 = 9;
 
     //Daten Inland 
-    @ManagedProperty("#{opinion04}")
     private int opinion04 = 9;
 
     //Netzqualität
-    @ManagedProperty("#{opinion05}")
     private int opinion05 = 9;
 
     //Telefonieren Ausland
-    @ManagedProperty("#{opinion06}")
     private int opinion06 = 9;
 
     //SMS/MMS Ausland 
-    @ManagedProperty("#{opinion07}")
     private int opinion07 = 9;
 
     //Daten Ausland
-    @ManagedProperty("#{opinion08}")
     private int opinion08 = 9;
 
     String csvFile = "D:\\OneDrive\\Schule\\Jahr 3\\IDPA\\Handy Tarif\\Betton's Tarife\\src\\main\\java\\ch\\betton\\bettonstarif\\controller\\Tarife.CSV";
@@ -201,18 +194,6 @@ public class TarifController {
                 String tmp08 = tarif[32];
                 String tmp09 = tarif[33];
                 String tmp10 = tarif[34];
-                System.out.println("------------------------------------");
-                System.out.println(tmp01);
-                System.out.println(tmp02);
-                System.out.println(tmp03);
-                System.out.println(tmp04);
-                System.out.println(tmp05);
-                System.out.println(tmp06);
-                System.out.println(tmp07);
-                System.out.println(tmp08);
-                System.out.println(tmp09);
-                System.out.println(tmp10);
-                System.out.println("------------------------------------");
 
                 Double preisProMonat = Double.parseDouble(tarif[3]);
                 Integer alterBeschrenkung = Integer.parseInt(tarif[24]);
@@ -235,8 +216,47 @@ public class TarifController {
                         tarif[25], mindestlaufzeit, tarif[27], aktivierungskosten, datenInlandIndex,
                         anrufInlandIndex, sMSMMSInlandIndex, DatenAuslandIndex, anrufAuslandIndex, sMSMMSAuslandIndex));
                 System.out.println("Tarif " + count + " erstellt");
+
                 count++;
             }
+
+            for (Tarif tarif : tarife) {
+                System.out.println("---------------------------------");
+                System.out.println(tarif.getAnbieter());
+                System.out.println(tarif.getName());
+                System.out.println(tarif.getArt());
+                System.out.println(tarif.getPreisProMonat());
+                System.out.println(tarif.getDatenSpeed());
+                System.out.println(tarif.getDatenvolumen());
+                System.out.println(tarif.getDatenKosten());
+                System.out.println(tarif.getDatenRoamingkosten());
+                System.out.println(tarif.getDatenRoamingInklusive());
+                System.out.println(tarif.getSmsKosten());
+                System.out.println(tarif.getSmsAnzahlInkusive());
+                System.out.println(tarif.getMmsKosten());
+                System.out.println(tarif.getMmsAnzahlInkusive());
+                System.out.println(tarif.getAnrufeKostenAuslandEmpfangen());
+                System.out.println(tarif.getAnrufeKostenAuslandOrtsgespraeche());
+                System.out.println(tarif.getAnrufeKostenAuslandInSchweiz());
+                System.out.println(tarif.getAnrufeKostenAuslandAusSchweiz());
+                System.out.println(tarif.getAnrufeAnzahlInklusiveAuslandAusSchweiz());
+                System.out.println(tarif.getSmsKostenAuslandSundE());
+                System.out.println(tarif.getSmsAnzahlInklusiveAuslandSundE());
+                System.out.println(tarif.getMmsKostenAuslandSundE());
+                System.out.println(tarif.getAlterBeschrenkung());
+                System.out.println(tarif.getBoni());
+                System.out.println(tarif.getMindestlaufzeit());
+                System.out.println(tarif.getAktivierungsbedingungen());
+                System.out.println(tarif.getAktivierungskosten());
+                System.out.println(tarif.getDatenInlandIndex());
+                System.out.println(tarif.getDatenAuslandIndex());
+                System.out.println(tarif.getsMSMMSInlandIndex());
+                System.out.println(tarif.getsMSMMSAuslandIndex());
+                System.out.println(tarif.getAnrufAuslandIndex());
+                System.out.println(tarif.getAnrufInlandIndex());
+
+            }
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -252,6 +272,20 @@ public class TarifController {
         }
     }
 
+    public void testDaten() {
+        System.out.println("------------------------------------");
+        System.out.println("Alter: " + age);
+        System.out.println("Dauer: " + duration);
+        System.out.println("T Inland: " + opinion02);
+        System.out.println("SMS/MMS Inland: " + opinion03);
+        System.out.println("Daten Inland: " + opinion04);
+        System.out.println("Netz: " + opinion04);
+        System.out.println("T Ausland: " + opinion06);
+        System.out.println("SMS/MMS Ausland: " + opinion07);
+        System.out.println("Daten Ausland: " + opinion08);
+        System.out.println("------------------------------------");
+    }
+
     //Filtert alle nicht relevanten Tarife heraus
     public void findRelevant() {
         for (Tarif tarif : tarife) {
@@ -261,59 +295,50 @@ public class TarifController {
                 System.out.println("------------------------------------");
                 System.out.println(tarif.getName());
                 System.out.println("------------------------------------");
-            }
-            if (tarif.getDatenInlandIndex() < opinion04) {
+                
+            } else if (tarif.getDatenInlandIndex() < opinion04) {
                 tarife.remove(tarif);
                 System.out.println("------------------------------------");
                 System.out.println(tarif.getName());
                 System.out.println("------------------------------------");
-            }
-            if (tarif.getsMSMMSInlandIndex() < opinion03) {
+            } else if (tarif.getsMSMMSInlandIndex() < opinion03) {
                 tarife.remove(tarif);
                 System.out.println("------------------------------------");
                 System.out.println(tarif.getName());
                 System.out.println("------------------------------------");
-            }
-            if (tarif.getAnbieter() == "Salt") {
+            } else if (tarif.getAnbieter() == "Salt") {
                 if (opinion05 == 1) {
                     tarife.remove(tarif);
                     System.out.println("------------------------------------");
                     System.out.println(tarif.getName());
                     System.out.println("------------------------------------");
                 }
-                tarife.remove(tarif);
-                System.out.println("------------------------------------");
-                System.out.println(tarif.getName());
-                System.out.println("------------------------------------");
-            }
-            if (tarif.getAlterBeschrenkung() > age) {
-                tarife.remove(tarif);
-                System.out.println("------------------------------------");
-                System.out.println(tarif.getName());
-                System.out.println("------------------------------------");
 
-            }
-            if (tarif.getMindestlaufzeit() == 0) {
+            } else if (tarif.getAlterBeschrenkung() > age) {
+                tarife.remove(tarif);
+                System.out.println("------------------------------------");
+                System.out.println(tarif.getName());
+                System.out.println("------------------------------------");
 
             } else if (tarif.getMindestlaufzeit() != duration) {
+                if (tarif.getMindestlaufzeit() == 0) {
+                } else {
+                    tarife.remove(tarif);
+                    System.out.println("------------------------------------");
+                    System.out.println(tarif.getName());
+                    System.out.println("------------------------------------");
+                }
+            } else if (tarif.getAnrufAuslandIndex() < opinion06) {
                 tarife.remove(tarif);
                 System.out.println("------------------------------------");
                 System.out.println(tarif.getName());
                 System.out.println("------------------------------------");
-            }
-            if (tarif.getAnrufAuslandIndex() < opinion06) {
+            } else if (tarif.getsMSMMSAuslandIndex() < opinion07) {
                 tarife.remove(tarif);
                 System.out.println("------------------------------------");
                 System.out.println(tarif.getName());
                 System.out.println("------------------------------------");
-            }
-            if (tarif.getsMSMMSAuslandIndex() < opinion07) {
-                tarife.remove(tarif);
-                System.out.println("------------------------------------");
-                System.out.println(tarif.getName());
-                System.out.println("------------------------------------");
-            }
-            if (tarif.getDatenAuslandIndex() < opinion08) {
+            } else if (tarif.getDatenAuslandIndex() < opinion08) {
                 tarife.remove(tarif);
                 System.out.println("------------------------------------");
                 System.out.println(tarif.getName());
@@ -323,8 +348,9 @@ public class TarifController {
         findTopThree();
     }
 
-    //Filter die drei günstigsten Tarife heraus
+//Filter die drei günstigsten Tarife heraus
     public void findTopThree() {
+
         System.out.println("Top dreis Ausgeführt");
         for (Tarif tarif : tarife) {
 
