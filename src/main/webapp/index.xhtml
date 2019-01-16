@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Betton's Tarif-Vergleich</title>
+
+        <link rel="shortcut icon" type="image/x-icon" href="#{resource['../img/favicon.ico']}"/>
+
+        <meta charset="utf-8"> </meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> </meta>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"></link>
+        <link rel="stylesheet" href="css/cover.css"> </link>   
+
+        <style>
+            .bd-placeholder-img {
+                font-size: 1.125rem;
+                text-anchor: middle;
+            }
+
+            @media (min-width: 768px) {
+                .bd-placeholder-img-lg {
+                    font-size: 3.5rem;
+                }
+            }   
+        </style>
+        <!-- Custom styles for this template -->
+
+    </h:head>
+    <h:body class="text-center">
+        <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column"> 
+            <header class="masthead mb-auto">
+                <div class="inner">
+                    <h3 class="masthead-brand">Start</h3>
+                    <nav class="nav nav-masthead justify-content-center">
+                        <a class="nav-link active" >Start</a>
+                        <a class="nav-link" href='#'>Formular</a>
+                        <a class="nav-link" href='#'>Ergebnisse</a>
+                    </nav>
+                </div>
+            </header>
+
+
+
+
+
+
+
+
+            <main role="main" class="inner cover">
+                <h1 class="cover-heading">Willkommen zu <br></br> Betton's Tarif-Vergleich <br></br><br/> </h1>
+
+                <p class="lead">Diese kleine Web-Applikation hilft Ihnen, den idealen Tarif zufinden, ganz einfach und Kostenlos!</p>
+                <br/>
+                <p class="lead">
+                    <h:form>
+
+                        <h:commandButton class="btn btn-lg btn-secondary" action = "formular01" onclick="#{tarifController.fillList()}" value = "Start!" >
+
+
+
+                        </h:commandButton>
+
+                    </h:form>
+                </p>
+            </main>
+
+            <footer class="mastfoot mt-auto">
+                <div class="inner">
+                    <p>Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+                </div>
+            </footer>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </h:body>
+</html>

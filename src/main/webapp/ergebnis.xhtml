@@ -1,0 +1,272 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title>Betton's Tarif-Vergleich</title>
+
+
+        <meta charset="utf-8"> </meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> </meta>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"></link>
+        <link rel="stylesheet" href="css/cover.css"> </link>    
+
+        <style>
+            .bd-placeholder-img {
+                font-size: 1.125rem;
+                text-anchor: middle;
+            }
+
+            @media (min-width: 768px) {
+                .bd-placeholder-img-lg {
+                    font-size: 3.5rem;
+                }
+            }   
+        </style>
+        <!-- Custom styles for this template -->
+
+    </h:head>
+    <h:body class="text-center">
+        <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column"> 
+            <header class="masthead mb-auto">
+                <div class="inner">
+                    <h3 class="masthead-brand">Bestes Ergebnis</h3>
+                    <nav class="nav nav-masthead justify-content-center">
+                        <a class="nav-link" href="index.xhtml">Start</a>
+                        <a class="nav-link " href="formular01.xhtml">Formular</a>
+                        <a class="nav-link active" href="ergebnis.xhtml">Ergebnisse</a>
+                    </nav>
+                </div>
+            </header>
+            <main>
+                <h2>Bestes Tarif:</h2> 
+                <hr /> 
+
+                <h:form >
+
+                    <br/>
+
+
+                    <p:tabView class="text-left" >
+
+
+
+
+
+                        <p:tab title="Details" class="text-left">
+
+
+
+                            <div class="row"><div class="col-sm-1 text-left">
+                                    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                                </div>
+                                <div class="col-sm-4 text-left" >
+                                    <h:outputText  value="Name:" /> <br/>
+                                    <h:outputText  value="Anbieter:" /><br/>
+                                    <h:outputText  value="Preis pro Monat:" /><br/>
+                                    <h:outputText  value="Durchschnittspreis pro Jahr:" /><br/>
+                                    <h:outputText  value="Mindestlaufzeit:" /><br/>
+                                    <h:outputText  value="Aktivierungsbedingnungen:" />
+                                </div>
+
+                                <div class="col-sm-6 text-left">
+                                    <h:outputText  value="#{tarifController.first.name}" style="font-weight: bold"/><br/>
+                                    <h:outputText  value="#{tarifController.first.anbieter}" style="font-weight: bold"/><br/>
+                                    <h:outputText  value="#{tarifController.first.preisProMonat} CHF" style="font-weight: bold"/><br/>
+                                    <h:outputText  value="#{tarifController.first.durchschnittskostenProJahr} CHF" style="font-weight: bold"/><br/>
+                                    <h:outputText  value="#{tarifController.first.getMindestlaufzeitInWorten}" style="font-weight: bold"/><br/>
+                                    <h:outputText  value="#{tarifController.first.aktivierungskosten} CHF" style="font-weight: bold"/>
+                                </div>
+
+
+                                <div class="col-sm-1 text-left">
+                                    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                                </div>
+                            </div>
+
+                        </p:tab>
+
+
+                        <p:tab title="Telefonieren">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Firstname</th>
+                                        <th>Lastname</th>
+                                        <th>Email</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>John</td>
+                                        <td>Doe</td>
+                                        <td>john@example.com</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mary</td>
+                                        <td>Moe</td>
+                                        <td>mary@example.com</td>
+                                    </tr>
+                                    <tr>
+                                        <td>July</td>
+                                        <td>Dooley</td>
+                                        <td>july@example.com</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </p:tab>
+
+
+
+                        <p:tab title="SMS/MMS">
+                            <div class="row"><div class="col-sm-1 text-left">
+                                    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                                </div>
+                                <div class="col-sm-10 text-left" >
+                                    <table class="table table-striped">
+                                        <tbody>
+                                            <tr>
+                                                <td><h:outputText  value="Name:" /></td>
+                                                <td> <h:outputText  value="#{tarifController.first.name}" style="font-weight: bold"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td> <h:outputText  value="Anbieter:" /><br/></td>
+                                                <td><h:outputText  value="#{tarifController.first.anbieter}" style="font-weight: bold"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td><h:outputText  value="Preis pro Monat:" /><br/></td>
+                                                <td><h:outputText  value="#{tarifController.first.preisProMonat} CHF" style="font-weight: bold"/></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="col-sm-1 text-left">
+                                    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                                </div>
+                            </div>
+                        </p:tab>
+
+
+
+
+
+
+
+
+
+
+
+
+                        <p:tab title="Daten">
+                            <div class="row"><div class="col-sm-1 text-left">
+                                    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                                </div>
+                                <div class="col-sm-4 text-left" >
+                                    <h:outputText  value="Name:" /> <br/>
+                                    <h:outputText  value="Anbieter:" /><br/>
+                                    <h:outputText  value="Mindestlaufzeit:" /><br/>
+                                    <h:outputText  value="Aktivierungsbedingnungen:" />
+
+
+                                </div>
+                                <div class="col-sm-6 text-left">
+                                    1 <h:outputText  value="#{tarifController.first.name}" style="font-weight: bold"/><br/>
+                                    2 <h:outputText  value="#{tarifController.first.anbieter}" style="font-weight: bold"/><br/>
+                                    3 <h:outputText  value="#{tarifController.first.getMindestlaufzeitInWorten}" style="font-weight: bold"/><br/>
+                                    4  <h:outputText  value="#{car.color}" style="font-weight: bold"/>
+                                </div>
+
+                                <div class="col-sm-1 text-left">
+                                    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                                </div>
+                            </div>
+                        </p:tab>
+
+
+
+
+
+
+
+
+
+
+
+                        <p:tab title="Ausland">
+                            <div class="row"><div class="col-sm-1 text-left">
+                                    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                                </div>
+                                <div class="col-sm-4 text-left" >
+                                    <h:outputText  value="Name:" /> <br/>
+                                    <h:outputText  value="Anbieter:" /><br/>
+                                    <h:outputText  value="Mindestlaufzeit:" /><br/>
+                                    <h:outputText  value="Aktivierungsbedingnungen:" />
+
+
+                                </div>
+                                <div class="col-sm-6 text-left">
+                                    1 <h:outputText  value="#{tarifController.first.name}" style="font-weight: bold"/><br/>
+                                    2 <h:outputText  value="#{tarifController.first.anbieter}" style="font-weight: bold"/><br/>
+                                    3 <h:outputText  value="#{tarifController.first.getMindestlaufzeitInWorten}" style="font-weight: bold"/><br/>
+                                    4  <h:outputText  value="#{car.color}" style="font-weight: bold"/>
+                                </div>
+
+                                <div class="col-sm-1 text-left">
+                                    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                                </div>
+                            </div>
+                        </p:tab>
+
+                        <p:tab title="Zusammenfassung">
+                            <div class="row"><div class="col-sm-1 text-left">
+                                    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                                </div>
+                                <div class="col-sm-4 text-left" >
+                                    <h:outputText  value="Name:" /> <br/>
+                                    <h:outputText  value="Anbieter:" /><br/>
+                                    <h:outputText  value="Mindestlaufzeit:" /><br/>
+                                    <h:outputText  value="Aktivierungsbedingnungen:" />
+
+
+                                </div>
+                                <div class="col-sm-6 text-left">
+                                    1 <h:outputText  value="#{tarifController.first.name}" style="font-weight: bold"/><br/>
+                                    2 <h:outputText  value="#{tarifController.first.anbieter}" style="font-weight: bold"/><br/>
+                                    3 <h:outputText  value="#{tarifController.first.getMindestlaufzeitInWorten}" style="font-weight: bold"/><br/>
+                                    4  <h:outputText  value="#{car.color}" style="font-weight: bold"/>
+                                </div>
+
+                                <div class="col-sm-1 text-left">
+                                    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                                </div>
+                            </div>
+                        </p:tab>
+                    </p:tabView>
+
+
+<br/><br/>
+
+                        <h:commandButton class="btn btn-lg btn-secondary" value="Zum Zweitbesten" action="ergebnis02" >
+
+                        </h:commandButton>
+
+
+
+
+
+                </h:form>
+
+            </main>
+            <footer class="mastfoot mt-auto">
+                <div class="inner">
+                    <p>Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+                </div>
+            </footer>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </h:body>
+</html>
