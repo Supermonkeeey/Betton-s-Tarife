@@ -161,11 +161,7 @@ public class TarifController {
     }
 
     //End of variables
-    
-    
-    
     //Start of methods
-    
     private ObservableList<Tarif> tarife = FXCollections.observableArrayList();
 
     //Füllt die tarife - ObservableList mit einträgen, dies sorgt für eine einfache Beartbarkeit der Tarife
@@ -292,6 +288,7 @@ public class TarifController {
             if (tarif.getAnrufInlandIndex() < opinion02) {
                 kill = true;
                 System.out.println("------------------------------------");
+                System.out.println("nicht genug anrufe inland");
                 System.out.println(tarif.getName());
                 System.out.println("------------------------------------");
 
@@ -300,6 +297,7 @@ public class TarifController {
             if (tarif.getDatenInlandIndex() < opinion04) {
                 kill = true;
                 System.out.println("------------------------------------");
+                System.out.println("nicht genug daten inland");
                 System.out.println(tarif.getName());
                 System.out.println("------------------------------------");
             }
@@ -307,6 +305,7 @@ public class TarifController {
             if (tarif.getsMSMMSInlandIndex() < opinion03) {
                 kill = true;
                 System.out.println("------------------------------------");
+                System.out.println("nicht genug SMS/MMS inland");
                 System.out.println(tarif.getName());
                 System.out.println("------------------------------------");
             }
@@ -315,25 +314,32 @@ public class TarifController {
                 if (opinion05 == 1) {
                     kill = true;
                     System.out.println("------------------------------------");
+                    System.out.println("nicht genug netz");
                     System.out.println(tarif.getName());
                     System.out.println("------------------------------------");
                 }
 
             }
 
-            if (tarif.getAlterBeschrenkung() > age) {
-                kill = true;
-                System.out.println("------------------------------------");
-                System.out.println(tarif.getName());
-                System.out.println("------------------------------------");
+            if (age > tarif.getAlterBeschrenkung()) {
 
-            }
+                if (tarif.getAlterBeschrenkung() == 0) {
 
-            if (tarif.getMindestlaufzeit() != duration) {
-                if (tarif.getMindestlaufzeit() == 0) {
                 } else {
                     kill = true;
                     System.out.println("------------------------------------");
+                    System.out.println("nicht jung genug");
+                    System.out.println(tarif.getName());
+                    System.out.println("------------------------------------");
+                }
+            }
+
+            if (tarif.getMindestlaufzeit() != duration) {
+                if (duration == 0) {
+                } else {
+                    kill = true;
+                    System.out.println("------------------------------------");
+                    System.out.println("nicht richtige mindestlaufzeit");
                     System.out.println(tarif.getName());
                     System.out.println("------------------------------------");
                 }
@@ -343,6 +349,7 @@ public class TarifController {
                 kill = true;
 
                 System.out.println("------------------------------------");
+                System.out.println("nicht genug anrufe ausland");
                 System.out.println(tarif.getName());
                 System.out.println("------------------------------------");
             }
@@ -350,6 +357,7 @@ public class TarifController {
             if (tarif.getsMSMMSAuslandIndex() < opinion07) {
                 kill = true;
                 System.out.println("------------------------------------");
+                System.out.println("nicht genug SMS/MMS ausland");
                 System.out.println(tarif.getName());
                 System.out.println("------------------------------------");
             }
@@ -357,14 +365,20 @@ public class TarifController {
             if (tarif.getDatenAuslandIndex() < opinion08) {
                 kill = true;
                 System.out.println("------------------------------------");
+                System.out.println("nicht genug daten ausland");
                 System.out.println(tarif.getName());
                 System.out.println("------------------------------------");
             }
-
-//            if (kill) {
-//                tarife.remove(tarif);
-//            }
+            System.out.println("-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            if (kill) {
+                System.out.println("+++++++++++++++++++++++++");
+                System.out.println("Kill:");
+                System.out.println(tarif.getName());
+                System.out.println("+++++++++++++++++++++++++");
+                tarife.remove(tarif);
+            }
         }
+
 //        findTopThree();
     }
 
