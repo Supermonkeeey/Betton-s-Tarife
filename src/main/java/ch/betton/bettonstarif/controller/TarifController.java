@@ -48,6 +48,253 @@ public class TarifController {
     //Daten Ausland
     private int opinion08 = 9;
 
+    private String bgr1;
+
+    private String bgr2;
+
+    private String bgr3;
+
+    public String getBgr1() {
+
+        String tmp = null;
+
+        if (age <= first.getAlterBeschrenkung()) {
+            if (first.getAlterBeschrenkung() != 999) {
+
+            } else {
+            
+            tmp = "Da Sie noch " + age + " Jahre jung sind, können Sie von diesem Jugend-Tarif Profitieren!\n\n";
+        }
+    }
+
+    if (first.getAnbieter () 
+        == "Swisscom") {
+            tmp = tmp + "Da Sie das Beste Netz der Schweiz geniessen wollen, wurde der Anbieter Swisscom gewählt, ";
+    }
+    tmp  = tmp + " Das Tarif " + first.getName() + " vom " + first.getAnbieter() + " ist ideal für Sie, da Sie ";
+    if (opinion02
+
+    
+        == 0) {
+            tmp = tmp + " in der Schweiz keine Telefonate führen, ";
+    }
+    else if (opinion02
+
+    
+        == 1) {
+            tmp = tmp + " in der Schweiz wenige Telefonate führen, ";
+    }
+    else if (opinion02
+
+    
+        == 2) {
+            tmp = tmp + " in der Schweiz mässig Telefonate führen, ";
+    }
+    else if (opinion02
+
+    
+        == 3) {
+            tmp = tmp + " in der Schweiz viele Telefonate führen, ";
+    }
+    else if (opinion02
+
+    
+        == 4) {
+            tmp = tmp + " in der Schweiz sehr viele Telefonate führen, ";
+    }
+
+    if (opinion03
+
+    
+        == 0) {
+            tmp = tmp + " keine SMS/MMS versenden und ";
+    }
+    else if (opinion03
+
+    
+        == 1) {
+            tmp = tmp + " wenige SMS/MMS versenden und ";
+    }
+    else if (opinion03
+
+    
+        == 2) {
+            tmp = tmp + " mässig SMS/MMS versenden und ";
+    }
+    else if (opinion03
+
+    
+        == 3) {
+            tmp = tmp + " viele SMS/MMS versenden und ";
+    }
+    else if (opinion03
+
+    
+        == 4) {
+            tmp = tmp + " sehr viele SMS/MMS versenden und ";
+    }
+
+    if (opinion04
+
+    
+        == 0) {
+            tmp = tmp + " keine mobilen Daten verbrauchen wollen. ";
+    }
+    else if (opinion04
+
+    
+        == 1) {
+            tmp = tmp + " wenige mobilen Daten verbrauchen wollen. ";
+    }
+    else if (opinion04
+
+    
+        == 2) {
+            tmp = tmp + " mässig mobilen Daten verbrauchen wollen. ";
+    }
+    else if (opinion04
+
+    
+        == 3) {
+            tmp = tmp + " viele mobilen Daten verbrauchen wollen. ";
+    }
+    else if (opinion04
+
+    
+        == 4) {
+            tmp = tmp + " sehr viele mobilen Daten verbrauchen wollen. ";
+    }
+
+    System.out.println (tmp);
+    return tmp ;
+}
+
+public void setBgr1(String bgr1) {
+        this.bgr1 = bgr1;
+    }
+
+    public String getBgr2() {
+
+        String tmp = null;
+
+        if (age <= second.getAlterBeschrenkung()) {
+           if (second.getAlterBeschrenkung() != 999) {
+
+            } else {
+            
+            tmp = "Da Sie noch " + age + " Jahre jung sind, können Sie von diesem Jugend-Tarif Profitieren!\n\n";
+        }
+        }
+
+        if (second.getAnbieter() == "Swisscom") {
+            tmp = tmp + "Da Sie das Beste Netz der Schweiz geniessen wollen, wurde der Anbieter Swisscom gewählt, ";
+        }
+        tmp = tmp + " Das Tarif " + second.getName() + " vom " + second.getAnbieter() + " ist ideal für Sie, da Sie ";
+        if (opinion02 == 0) {
+            tmp = tmp + " in der Schweiz keine Telefonate führen, ";
+        } else if (opinion02 == 1) {
+            tmp = tmp + " in der Schweiz wenige Telefonate führen, ";
+        } else if (opinion02 == 2) {
+            tmp = tmp + " in der Schweiz mässig Telefonate führen, ";
+        } else if (opinion02 == 3) {
+            tmp = tmp + " in der Schweiz viele Telefonate führen, ";
+        } else if (opinion02 == 4) {
+            tmp = tmp + " in der Schweiz sehr viele Telefonate führen, ";
+        }
+
+        if (opinion03 == 0) {
+            tmp = tmp + " keine SMS/MMS versenden und ";
+        } else if (opinion03 == 1) {
+            tmp = tmp + " wenige SMS/MMS versenden und ";
+        } else if (opinion03 == 2) {
+            tmp = tmp + " mässig SMS/MMS versenden und ";
+        } else if (opinion03 == 3) {
+            tmp = tmp + " viele SMS/MMS versenden und ";
+        } else if (opinion03 == 4) {
+            tmp = tmp + " sehr viele SMS/MMS versenden und ";
+        }
+
+        if (opinion04 == 0) {
+            tmp = tmp + " keine mobilen Daten verbrauchen wollen. ";
+        } else if (opinion04 == 1) {
+            tmp = tmp + " wenige mobilen Daten verbrauchen wollen. ";
+        } else if (opinion04 == 2) {
+            tmp = tmp + " mässig mobilen Daten verbrauchen wollen. ";
+        } else if (opinion04 == 3) {
+            tmp = tmp + " viele mobilen Daten verbrauchen wollen. ";
+        } else if (opinion04 == 4) {
+            tmp = tmp + " sehr viele mobilen Daten verbrauchen wollen. ";
+        }
+
+        System.out.println(tmp);
+        return tmp;
+    }
+
+    public void setBgr2(String bgr2) {
+        this.bgr2 = bgr2;
+    }
+
+    public String getBgr3() {
+        String tmp = "";
+
+        if (age <= third.getAlterBeschrenkung()) {
+           if (third.getAlterBeschrenkung() != 999) {
+
+            } else {
+            
+            tmp = "Da Sie noch " + age + " Jahre jung sind, können Sie von diesem Jugend-Tarif Profitieren!\n\n";
+        }
+        }
+
+        if (third.getAnbieter() == "Swisscom") {
+            tmp = tmp + "Da Sie das Beste Netz der Schweiz geniessen wollen, wurde der Anbieter Swisscom gewählt, ";
+        }
+        
+        tmp = tmp + "Das Tarif " + third.getName() + " vom " + third.getAnbieter() + " ist ideal für Sie, da Sie ";
+        if (opinion02 == 0) {
+            tmp = tmp + " in der Schweiz keine Telefonate führen, ";
+        } else if (opinion02 == 1) {
+            tmp = tmp + " in der Schweiz wenige Telefonate führen, ";
+        } else if (opinion02 == 2) {
+            tmp = tmp + " in der Schweiz mässig Telefonate führen, ";
+        } else if (opinion02 == 3) {
+            tmp = tmp + " in der Schweiz viele Telefonate führen, ";
+        } else if (opinion02 == 4) {
+            tmp = tmp + " in der Schweiz sehr viele Telefonate führen, ";
+        }
+
+        if (opinion03 == 0) {
+            tmp = tmp + " keine SMS/MMS versenden und ";
+        } else if (opinion03 == 1) {
+            tmp = tmp + " wenige SMS/MMS versenden und ";
+        } else if (opinion03 == 2) {
+            tmp = tmp + " mässig SMS/MMS versenden und ";
+        } else if (opinion03 == 3) {
+            tmp = tmp + " viele SMS/MMS versenden und ";
+        } else if (opinion03 == 4) {
+            tmp = tmp + " sehr viele SMS/MMS versenden und ";
+        }
+
+        if (opinion04 == 0) {
+            tmp = tmp + " keine mobilen Daten verbrauchen wollen. ";
+        } else if (opinion04 == 1) {
+            tmp = tmp + " wenige mobilen Daten verbrauchen wollen. ";
+        } else if (opinion04 == 2) {
+            tmp = tmp + " mässig mobilen Daten verbrauchen wollen. ";
+        } else if (opinion04 == 3) {
+            tmp = tmp + " viele mobilen Daten verbrauchen wollen. ";
+        } else if (opinion04 == 4) {
+            tmp = tmp + " sehr viele mobilen Daten verbrauchen wollen. ";
+        }
+
+        System.out.println(tmp);
+        return tmp;
+    }
+
+    public void setBgr3(String bgr3) {
+        this.bgr3 = bgr3;
+    }
+
     BufferedReader br = null;
     String line = "";
     String cvsSplitBy = ",";
