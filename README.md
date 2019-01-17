@@ -4,11 +4,11 @@
 Dies ist Matthias Bettin's IDPA-Projekt zum Auftrag "Tarife-Vergleich" Erstellt von Matthias Bettin I3B/im16c
 
 
-### Was erf�llt diese Applikation?
-Der Sinn dieser Applikation ist, dem Benutzer einige Fragen zu seinem Mobil-Verhalten zu stellen, diese anschliessend auszuwerten und dem Benutzer die 3 g�nstigsten Tarife zu presentieren, mit einer kleinen Beschreibung, wie genau diese Tarife auf das Mabil-Verhalten zutreffen
+### Was erfüllt diese Applikation?
+Der Sinn dieser Applikation ist, dem Benutzer einige Fragen zu seinem Mobil-Verhalten zu stellen, diese anschliessend auszuwerten und dem Benutzer die 3 günstigsten Tarife zu presentieren, mit einer kleinen Beschreibung, wie genau diese Tarife auf das Mabil-Verhalten zutreffen
 
 ### Wie starte ich diese Applikation?
-1. �ffnen Sie NetBeans und �ffnen Sie dieses Projekt darin. 
+1. öffnen Sie NetBeans und öffnen Sie dieses Projekt darin. 
 
 2. In NetBeans, im Projekt-Verzeichnis unter | BettonsTarife --> Source Packages -->ch.betton.bettonstarif.controller | befindet sich eine Datei Tarife.CSV
 
@@ -16,7 +16,7 @@ Der Sinn dieser Applikation ist, dem Benutzer einige Fragen zu seinem Mobil-Verh
 
 4. Ersetzen Sie den Pfad im TarifController.java in der 22. Zeile unter | BettonsTarife --> Source Packages -->ch.betton.bettonstarif.controller --> TarifController.java |
 
-5. Ausf�hren
+5. Ausführen
 
 ### Wie funktioniert diese Applikation?
 1. Applikation ist gestartet
@@ -25,20 +25,20 @@ Der Sinn dieser Applikation ist, dem Benutzer einige Fragen zu seinem Mobil-Verh
 
 3. Eingeben des Alters durch Tippen/Sliden, anschliessend auf "Weiter/Enter
 
-4. W�hlen der Mindestlaufzeit durch klick auf Optioin, anschliessend auf "Weiter/Enter
+4. Wählen der Mindestlaufzeit durch klick auf Optioin, anschliessend auf "Weiter/Enter
 
 5. Selber Prozess bis "Frage 7 von 10"
 
-6. Bei "Frage 7 von 10", "Ja, weiter" bring einen zu fragen 8 - 10, "Nein, �berspringen" f�hrt zu den Ergebnissen
+6. Bei "Frage 7 von 10", "Ja, weiter" bring einen zu fragen 8 - 10, "Nein, überspringen" führt zu den Ergebnissen
 
-7. Sollten Sie "Ja, weiter" gew�hlt haben, beantworten Sie fragen 8, 9 und 10. 
+7. Sollten Sie "Ja, weiter" gewählt haben, beantworten Sie fragen 8, 9 und 10. 
 
-8. Auf der Ergebnis-Seite sehen Sie zuerst die Details des besten Tarifs, durch klicken auf die anderen Tab, �ffnen Sie diese
+8. Auf der Ergebnis-Seite sehen Sie zuerst die Details des besten Tarifs, durch klicken auf die anderen Tab, öffnen Sie diese
 
-9. "Zum Zweitbesten" f�hrt Sie zum zweitbesten Tarif, selbes Prinzip wie bei 8.
-
-
+9. "Zum Zweitbesten" führt Sie zum zweitbesten Tarif, selbes Prinzip wie bei 8.
 
 
-### Wie findes ich Fehler?
-im Output unter Java DB Database Process befinden sich n�tzliche Infos, die den Prozess beschreiben
+
+
+### Wie finde ich Fehler?
+im Output unter Java DB Database Process befinden sich nützliche Infos, die den Prozess beschreiben
