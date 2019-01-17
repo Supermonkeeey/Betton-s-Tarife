@@ -6,13 +6,14 @@ package ch.betton.bettonstarif.model;
  */
 public class Tarif {
 //0 bis 4
+
     private String anbieter;
     private String name;
     private String art;
     private Double preisProMonat;
     private String datenSpeed;
 //5 bis 9
-    private String datenvolumen;
+    private String datenVolumen;
     private String datenKosten;
     private String datenRoamingkosten;
     private String datenRoamingInklusive;
@@ -48,13 +49,15 @@ public class Tarif {
     private Integer anrufAuslandIndex;
     private Integer sMSMMSAuslandIndex;
 
-    public Tarif(String anbieter, String name, String art, Double preisProMonat, String datenSpeed, String datenvolumen, String datenKosten, String datenRoamingkosten, String datenRoamingInklusive, String smsKosten, String smsAnzahlInkusive, String mmsKosten, String mmsAnzahlInkusive, String anrufeKosten, String anrufeAnzahlInklusive, String anrufeKostenAuslandEmpfangen, String anrufeKostenAuslandOrtsgespraeche, String anrufeKostenAuslandInSchweiz, String anrufeKostenAuslandAusSchweiz, String anrufeAnzahlInklusiveAuslandAusSchweiz, String smsKostenAuslandSundE, String smsAnzahlInklusiveAuslandSundE, String mmsKostenAuslandSundE, String mmsAnzahlInklusiveAuslandSundE, Integer alterBeschrenkung, String boni, Integer mindestlaufzeit, String aktivierungsbedingungen, Double aktivierungskosten, Integer datenInlandIndex, Integer anrufInlandIndex, Integer sMSMMSInlandIndex, Integer datenAuslandIndex, Integer anrufAuslandIndex, Integer sMSMMSAuslandIndex) {
+    private Boolean kill;
+
+    public Tarif(String anbieter, String name, String art, Double preisProMonat, String datenSpeed, String datenVolumen, String datenKosten, String datenRoamingkosten, String datenRoamingInklusive, String smsKosten, String smsAnzahlInkusive, String mmsKosten, String mmsAnzahlInkusive, String anrufeKosten, String anrufeAnzahlInklusive, String anrufeKostenAuslandEmpfangen, String anrufeKostenAuslandOrtsgespraeche, String anrufeKostenAuslandInSchweiz, String anrufeKostenAuslandAusSchweiz, String anrufeAnzahlInklusiveAuslandAusSchweiz, String smsKostenAuslandSundE, String smsAnzahlInklusiveAuslandSundE, String mmsKostenAuslandSundE, String mmsAnzahlInklusiveAuslandSundE, Integer alterBeschrenkung, String boni, Integer mindestlaufzeit, String aktivierungsbedingungen, Double aktivierungskosten, Integer datenInlandIndex, Integer anrufInlandIndex, Integer sMSMMSInlandIndex, Integer datenAuslandIndex, Integer anrufAuslandIndex, Integer sMSMMSAuslandIndex) {
         this.anbieter = anbieter;
         this.name = name;
         this.art = art;
         this.preisProMonat = preisProMonat;
         this.datenSpeed = datenSpeed;
-        this.datenvolumen = datenvolumen;
+        this.datenVolumen = datenVolumen;
         this.datenKosten = datenKosten;
         this.datenRoamingkosten = datenRoamingkosten;
         this.datenRoamingInklusive = datenRoamingInklusive;
@@ -84,6 +87,15 @@ public class Tarif {
         this.datenAuslandIndex = datenAuslandIndex;
         this.anrufAuslandIndex = anrufAuslandIndex;
         this.sMSMMSAuslandIndex = sMSMMSAuslandIndex;
+        this.kill = false;
+    }
+
+    public Boolean getKill() {
+        return kill;
+    }
+
+    public void setKill(Boolean kill) {
+        this.kill = kill;
     }
 
     public Integer getDatenInlandIndex() {
@@ -178,12 +190,12 @@ public class Tarif {
         this.datenSpeed = datenSpeed;
     }
 
-    public String getDatenvolumen() {
-        return datenvolumen;
+    public String getDatenVolumen() {
+        return datenVolumen;
     }
 
-    public void setDatenvolumen(String datenvolumen) {
-        this.datenvolumen = datenvolumen;
+    public void setDatenvolumen(String datenVolumen) {
+        this.datenVolumen = datenVolumen;
     }
 
     public String getDatenKosten() {
@@ -354,14 +366,6 @@ public class Tarif {
         this.mindestlaufzeit = mindestlaufzeit;
     }
 
-    public String getMindestlaufzeitInWorten() {
-        if (mindestlaufzeit > 0) {
-            return mindestlaufzeit + " Monate";
-        } else {
-            return "keine";
-        }
-    }
-
     public String getAktivierungsbedingungen() {
         return aktivierungsbedingungen;
     }
@@ -381,21 +385,20 @@ public class Tarif {
 
     public Double getDurchschnittskostenProJahr() {
 
+        return round(getDurchschnittskostenProMonat() * 12, 2);
+    }
+
+    public Double getDurchschnittskostenProMonat() {
         Double aks = this.aktivierungskosten;
         Double ppm = this.preisProMonat;
         Integer mlz = this.mindestlaufzeit;
         Double tmp;
 
         if (0 == ppm) {
-            return null;
+            tmp = ppm;
         } else {
-            tmp = (mlz * aks / mlz * 12) + ppm * 12;
-            return round(tmp, 2);
+            tmp = ((mlz * ppm) + aks) / mlz;
         }
-    }
-
-    public Double getDurchschnittskostenProMonat() {
-        Double tmp = this.getDurchschnittskostenProJahr() / 12;
         return round(tmp, 2);
     }
 

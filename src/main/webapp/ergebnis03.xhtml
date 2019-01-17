@@ -1,16 +1,243 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>TODO supply a title</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title>Betton's Tarif-Vergleich</title>
+        <link rel="shortcut icon" type="image/x-icon" href="img/favicon/favicon.ico"/>
+
+        <meta charset="utf-8"> </meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> </meta>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"></link>
+        <link rel="stylesheet" href="css/cover.css"> </link>    
+
+        <style>
+            .bd-placeholder-img {
+                font-size: 1.125rem;
+                text-anchor: middle;
+            }
+
+            @media (min-width: 768px) {
+                .bd-placeholder-img-lg {
+                    font-size: 3.5rem;
+                }
+            }   
+        </style>
+        <!-- Custom styles for this template -->
+
+    </h:head>
+    <h:body class="text-center">
+        <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column"> 
+            <header class="masthead mb-auto">
+                <div class="inner">
+                    <h3 class="masthead-brand">Ergebnis</h3>
+                    <nav class="nav nav-masthead justify-content-center">
+                        <a class="nav-link" href="index.xhtml">Start</a>
+                        <a class="nav-link " href="formular01.xhtml">Formular</a>
+                        <a class="nav-link active" href="ergebnis.xhtml">Ergebnisse</a>
+                    </nav>
+                </div>
+            </header>
+            <main>
+                <h2>Drittbestes Tarif:</h2> 
+                <hr /> 
+
+                <h:form >
+
+                    <br/>
+
+
+                    <p:tabView class="text-left" >
+
+
+
+
+
+                        <p:tab title="Details" class="text-left">
+                            <div class="row">
+
+                                <div class="col-sm-5 text-left" >
+                                    <h:outputText  value="Name:" /> <br/>
+                                    <h:outputText  value="Anbieter:" /><br/>
+                                    <h:outputText  value="Preis pro Monat:" /><br/>
+                                    <h:outputText  value="Durchschnittspreis pro Jahr:" /><br/>
+                                    <h:outputText  value="Mindestlaufzeit:" /><br/>
+                                    <h:outputText  value="Aktivierungsbedingnungen:" /><br/>
+                                    <h:outputText  value="Aktivierungskosten:" /><br/>
+                                    <h:outputText  value="Boni:" />
+                                </div>
+
+                                <div class="col-sm-6 text-left">
+                                    <h:outputText  value="#{tarifController.third.name}" style="font-weight: bold"/><br/>
+                                    <h:outputText  value="#{tarifController.third.anbieter}" style="font-weight: bold"/><br/>
+                                    <h:outputText  value="#{tarifController.third.preisProMonat} CHF" style="font-weight: bold"/><br/>
+                                    <h:outputText  value="#{tarifController.third.durchschnittskostenProJahr} CHF" style="font-weight: bold"/><br/>
+                                    <h:outputText  value="#{tarifController.third.mindestlaufzeit} Monate" style="font-weight: bold"/><br/>
+                                    <h:outputText  value="#{tarifController.third.aktivierungsbedingungen}" style="font-weight: bold"/><br/>
+                                    <h:outputText  value="#{tarifController.third.aktivierungskosten} CHF" style="font-weight: bold"/><br/>
+                                    <h:outputText  value="#{tarifController.third.boni}" style="font-weight: bold"/>
+                                </div>
+
+
+                                <div class="col-sm-1 text-left">
+                                    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                                </div>
+                            </div>
+                        </p:tab>
+
+
+                        <p:tab title="Telefonieren">
+                            <div class="row">
+
+                                <div class="col-sm-5 text-left" >
+                                    <h:outputText  value="Anrufe inklusive:" /> <br/>
+                                    <h:outputText  value="Anruf-Kosten:" /><br/>
+                                    <h:outputText  value="Anrufe im Ausand empfanen:" /><br/>
+                                    <h:outputText  value="Anrufe im Ausland, Ortsgespräche:" /><br/>
+                                    <h:outputText  value="Anrufe vom Ausland in die Schweiz:" /><br/>
+                                    <h:outputText  value="Anrufe ins Ausland aus der Schweiz:" /><br/>
+                                    <h:outputText  value="Anrufe ins Ausland inklusive:" />
+
+                                </div>
+
+                                <div class="col-sm-6 text-left">
+                                    <h:outputText  value="#{tarifController.third.anrufeAnzahlInklusive}" style="font-weight: bold"/><br/>
+                                    <h:outputText  value="#{tarifController.third.anrufeKosten} " style="font-weight: bold"/><br/>
+                                    <h:outputText  value="#{tarifController.third.anrufeKostenAuslandEmpfangen} " style="font-weight: bold"/><br/>
+                                    <h:outputText  value="#{tarifController.third.anrufeKostenAuslandOrtsgespraeche} " style="font-weight: bold"/><br/>
+                                    <h:outputText  value="#{tarifController.third.anrufeKostenAuslandInSchweiz} " style="font-weight: bold"/><br/>
+                                    <h:outputText  value="#{tarifController.third.anrufeKostenAuslandAusSchweiz} " style="font-weight: bold"/><br/>
+                                    <h:outputText  value="#{tarifController.third.anrufeAnzahlInklusiveAuslandAusSchweiz}" style="font-weight: bold"/>
+                                </div>
+
+
+                                <div class="col-sm-1 text-left">
+                                    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                                </div>
+                            </div>
+                        </p:tab>
+
+
+
+                        <p:tab title="SMS/MMS">
+                            <div class="row">
+
+                                <div class="col-sm-5 text-left" >
+                                    <h:outputText  value="SMS inklusive:" /> <br/>
+                                    <h:outputText  value="SMS-Kosten:" /><br/>
+                                    <h:outputText  value="MMS inklusive:" /><br/>
+                                    <h:outputText  value="MMS-Kosten:" /><br/><br/>
+                                    <h:outputText  value="SMS inklusive Ausland:" /> <br/>
+                                    <h:outputText  value="SMS-Kosten Ausland:" /><br/>
+                                    <h:outputText  value="MMS inklusive Ausland:" /><br/>
+                                    <h:outputText  value="MMS-Kosten Ausland:" /><br/>
+                                </div>
+
+                                <div class="col-sm-6 text-left">
+                                    <h:outputText  value="#{tarifController.third.smsAnzahlInkusive}" style="font-weight: bold"/><br/>
+                                    <h:outputText  value="#{tarifController.third.smsKosten}" style="font-weight: bold"/><br/>
+                                    <h:outputText  value="#{tarifController.third.mmsAnzahlInkusive}" style="font-weight: bold"/><br/>
+                                    <h:outputText  value="#{tarifController.third.mmsKosten}" style="font-weight: bold"/><br/><br/>
+                                    <h:outputText  value="#{tarifController.third.smsAnzahlInklusiveAuslandSundE} Monate" style="font-weight: bold"/><br/>
+                                    <h:outputText  value="#{tarifController.third.smsKostenAuslandSundE}" style="font-weight: bold"/><br/>
+                                    <h:outputText  value="#{tarifController.third.mmsAnzahlInklusiveAuslandSundE} CHF" style="font-weight: bold"/><br/>
+                                    <h:outputText  value="#{tarifController.third.mmsKostenAuslandSundE} CHF" style="font-weight: bold"/>
+                                </div>
+
+
+                                <div class="col-sm-1 text-left">
+                                    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                                </div>
+                            </div>
+                        </p:tab>
+
+
+
+
+
+
+
+
+
+
+
+
+                        <p:tab title="Daten">
+                            <div class="row">
+
+                                <div class="col-sm-5 text-left" >
+                                    <h:outputText  value="Datenspeed:" /> <br/>
+                                    <h:outputText  value="Datenvolumen:" /> <br/>
+                                    <h:outputText  value="Datenkosten:" /> <br/><br/>
+                                    <h:outputText  value="Roamingkosten:" /> <br/>
+                                    <h:outputText  value="Roaming inklusive:" /> <br/>
+
+                                </div>
+
+                                <div class="col-sm-6 text-left">
+                                    <h:outputText  value="#{tarifController.third.datenSpeed}" style="font-weight: bold"/><br/>
+                                    <h:outputText  value="#{tarifController.third.datenVolumen}" style="font-weight: bold"/><br/>
+                                    <h:outputText  value="#{tarifController.third.datenKosten}" style="font-weight: bold"/><br/><br/>
+                                    <h:outputText  value="#{tarifController.third.datenRoamingkosten}" style="font-weight: bold"/><br/>
+                                    <h:outputText  value="#{tarifController.third.datenRoamingInklusive} Monate" style="font-weight: bold"/><br/>
+                                </div>
+
+
+                                <div class="col-sm-1 text-left">
+                                    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                                </div>
+                            </div>
+
+
+                        </p:tab>
+
+
+
+
+
+
+
+
+
+
+                        <p:tab title="Zusammenfassung">
+                            <div class="row">
+
+
+                                <div class="col-sm-11 text-left">
+                                   
+                                </div>
+
+
+                                <div class="col-sm-1 text-left">
+                                    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                                </div>
+                            </div>
+
+                        </p:tab>
+
+                    </p:tabView>
+
+
+                    <br/><br/>
+
+                    <br/><br/>
+
+
+
+
+                </h:form>
+
+            </main>
+            <footer class="mastfoot mt-auto">
+                <div class="inner">
+                    <p>Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+                </div>
+            </footer>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </h:body>
 </html>

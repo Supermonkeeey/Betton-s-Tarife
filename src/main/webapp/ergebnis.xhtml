@@ -56,19 +56,17 @@
 
 
                         <p:tab title="Details" class="text-left">
+                            <div class="row">
 
-
-
-                            <div class="row"><div class="col-sm-1 text-left">
-                                    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-                                </div>
-                                <div class="col-sm-4 text-left" >
+                                <div class="col-sm-5 text-left" >
                                     <h:outputText  value="Name:" /> <br/>
                                     <h:outputText  value="Anbieter:" /><br/>
                                     <h:outputText  value="Preis pro Monat:" /><br/>
                                     <h:outputText  value="Durchschnittspreis pro Jahr:" /><br/>
                                     <h:outputText  value="Mindestlaufzeit:" /><br/>
-                                    <h:outputText  value="Aktivierungsbedingnungen:" />
+                                    <h:outputText  value="Aktivierungsbedingnungen:" /><br/>
+                                    <h:outputText  value="Aktivierungskosten:" /><br/>
+                                    <h:outputText  value="Boni:" />
                                 </div>
 
                                 <div class="col-sm-6 text-left">
@@ -76,8 +74,10 @@
                                     <h:outputText  value="#{tarifController.first.anbieter}" style="font-weight: bold"/><br/>
                                     <h:outputText  value="#{tarifController.first.preisProMonat} CHF" style="font-weight: bold"/><br/>
                                     <h:outputText  value="#{tarifController.first.durchschnittskostenProJahr} CHF" style="font-weight: bold"/><br/>
-                                    <h:outputText  value="#{tarifController.first.getMindestlaufzeitInWorten}" style="font-weight: bold"/><br/>
-                                    <h:outputText  value="#{tarifController.first.aktivierungskosten} CHF" style="font-weight: bold"/>
+                                    <h:outputText  value="#{tarifController.first.mindestlaufzeit} Monate" style="font-weight: bold"/><br/>
+                                    <h:outputText  value="#{tarifController.first.aktivierungsbedingungen}" style="font-weight: bold"/><br/>
+                                    <h:outputText  value="#{tarifController.first.aktivierungskosten} CHF" style="font-weight: bold"/><br/>
+                                    <h:outputText  value="#{tarifController.first.boni}" style="font-weight: bold"/>
                                 </div>
 
 
@@ -85,63 +85,67 @@
                                     <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
                                 </div>
                             </div>
-
                         </p:tab>
 
 
                         <p:tab title="Telefonieren">
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>Firstname</th>
-                                        <th>Lastname</th>
-                                        <th>Email</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>John</td>
-                                        <td>Doe</td>
-                                        <td>john@example.com</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Mary</td>
-                                        <td>Moe</td>
-                                        <td>mary@example.com</td>
-                                    </tr>
-                                    <tr>
-                                        <td>July</td>
-                                        <td>Dooley</td>
-                                        <td>july@example.com</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            <div class="row">
+
+                                <div class="col-sm-5 text-left" >
+                                    <h:outputText  value="Anrufe inklusive:" /> <br/>
+                                    <h:outputText  value="Anruf-Kosten:" /><br/>
+                                    <h:outputText  value="Anrufe im Ausand empfanen:" /><br/>
+                                    <h:outputText  value="Anrufe im Ausland, Ortsgespräche:" /><br/>
+                                    <h:outputText  value="Anrufe vom Ausland in die Schweiz:" /><br/>
+                                    <h:outputText  value="Anrufe ins Ausland aus der Schweiz:" /><br/>
+                                    <h:outputText  value="Anrufe ins Ausland inklusive:" />
+
+                                </div>
+
+                                <div class="col-sm-6 text-left">
+                                    <h:outputText  value="#{tarifController.first.anrufeAnzahlInklusive}" style="font-weight: bold"/><br/>
+                                    <h:outputText  value="#{tarifController.first.anrufeKosten} " style="font-weight: bold"/><br/>
+                                    <h:outputText  value="#{tarifController.first.anrufeKostenAuslandEmpfangen} " style="font-weight: bold"/><br/>
+                                    <h:outputText  value="#{tarifController.first.anrufeKostenAuslandOrtsgespraeche} " style="font-weight: bold"/><br/>
+                                    <h:outputText  value="#{tarifController.first.anrufeKostenAuslandInSchweiz} " style="font-weight: bold"/><br/>
+                                    <h:outputText  value="#{tarifController.first.anrufeKostenAuslandAusSchweiz} " style="font-weight: bold"/><br/>
+                                    <h:outputText  value="#{tarifController.first.anrufeAnzahlInklusiveAuslandAusSchweiz}" style="font-weight: bold"/>
+                                </div>
+
+
+                                <div class="col-sm-1 text-left">
+                                    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                                </div>
+                            </div>
                         </p:tab>
 
 
 
                         <p:tab title="SMS/MMS">
-                            <div class="row"><div class="col-sm-1 text-left">
-                                    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                            <div class="row">
+
+                                <div class="col-sm-5 text-left" >
+                                    <h:outputText  value="SMS inklusive:" /> <br/>
+                                    <h:outputText  value="SMS-Kosten:" /><br/>
+                                    <h:outputText  value="MMS inklusive:" /><br/>
+                                    <h:outputText  value="MMS-Kosten:" /><br/><br/>
+                                    <h:outputText  value="SMS inklusive Ausland:" /> <br/>
+                                    <h:outputText  value="SMS-Kosten Ausland:" /><br/>
+                                    <h:outputText  value="MMS inklusive Ausland:" /><br/>
+                                    <h:outputText  value="MMS-Kosten Ausland:" /><br/>
                                 </div>
-                                <div class="col-sm-10 text-left" >
-                                    <table class="table table-striped">
-                                        <tbody>
-                                            <tr>
-                                                <td><h:outputText  value="Name:" /></td>
-                                                <td> <h:outputText  value="#{tarifController.first.name}" style="font-weight: bold"/></td>
-                                            </tr>
-                                            <tr>
-                                                <td> <h:outputText  value="Anbieter:" /><br/></td>
-                                                <td><h:outputText  value="#{tarifController.first.anbieter}" style="font-weight: bold"/></td>
-                                            </tr>
-                                            <tr>
-                                                <td><h:outputText  value="Preis pro Monat:" /><br/></td>
-                                                <td><h:outputText  value="#{tarifController.first.preisProMonat} CHF" style="font-weight: bold"/></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+
+                                <div class="col-sm-6 text-left">
+                                    <h:outputText  value="#{tarifController.first.smsAnzahlInkusive}" style="font-weight: bold"/><br/>
+                                    <h:outputText  value="#{tarifController.first.smsKosten}" style="font-weight: bold"/><br/>
+                                    <h:outputText  value="#{tarifController.first.mmsAnzahlInkusive}" style="font-weight: bold"/><br/>
+                                    <h:outputText  value="#{tarifController.first.mmsKosten}" style="font-weight: bold"/><br/><br/>
+                                    <h:outputText  value="#{tarifController.first.smsAnzahlInklusiveAuslandSundE} Monate" style="font-weight: bold"/><br/>
+                                    <h:outputText  value="#{tarifController.first.smsKostenAuslandSundE}" style="font-weight: bold"/><br/>
+                                    <h:outputText  value="#{tarifController.first.mmsAnzahlInklusiveAuslandSundE} CHF" style="font-weight: bold"/><br/>
+                                    <h:outputText  value="#{tarifController.first.mmsKostenAuslandSundE} CHF" style="font-weight: bold"/>
                                 </div>
+
 
                                 <div class="col-sm-1 text-left">
                                     <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
@@ -161,28 +165,32 @@
 
 
                         <p:tab title="Daten">
-                            <div class="row"><div class="col-sm-1 text-left">
-                                    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-                                </div>
-                                <div class="col-sm-4 text-left" >
-                                    <h:outputText  value="Name:" /> <br/>
-                                    <h:outputText  value="Anbieter:" /><br/>
-                                    <h:outputText  value="Mindestlaufzeit:" /><br/>
-                                    <h:outputText  value="Aktivierungsbedingnungen:" />
+                            <div class="row">
 
+                                <div class="col-sm-5 text-left" >
+                                    <h:outputText  value="Datenspeed:" /> <br/>
+                                    <h:outputText  value="Datenvolumen:" /> <br/>
+                                    <h:outputText  value="Datenkosten:" /> <br/><br/>
+                                    <h:outputText  value="Roamingkosten:" /> <br/>
+                                    <h:outputText  value="Roaming inklusive:" /> <br/>
 
                                 </div>
+
                                 <div class="col-sm-6 text-left">
-                                    1 <h:outputText  value="#{tarifController.first.name}" style="font-weight: bold"/><br/>
-                                    2 <h:outputText  value="#{tarifController.first.anbieter}" style="font-weight: bold"/><br/>
-                                    3 <h:outputText  value="#{tarifController.first.getMindestlaufzeitInWorten}" style="font-weight: bold"/><br/>
-                                    4  <h:outputText  value="#{car.color}" style="font-weight: bold"/>
+                                    <h:outputText  value="#{tarifController.first.datenSpeed}" style="font-weight: bold"/><br/>
+                                    <h:outputText  value="#{tarifController.first.datenVolumen}" style="font-weight: bold"/><br/>
+                                    <h:outputText  value="#{tarifController.first.datenKosten}" style="font-weight: bold"/><br/><br/>
+                                    <h:outputText  value="#{tarifController.first.datenRoamingkosten}" style="font-weight: bold"/><br/>
+                                    <h:outputText  value="#{tarifController.first.datenRoamingInklusive} Monate" style="font-weight: bold"/><br/>
                                 </div>
+
 
                                 <div class="col-sm-1 text-left">
                                     <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
                                 </div>
                             </div>
+
+
                         </p:tab>
 
 
@@ -193,57 +201,23 @@
 
 
 
-
-
-                        <p:tab title="Ausland">
-                            <div class="row"><div class="col-sm-1 text-left">
-                                    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-                                </div>
-                                <div class="col-sm-4 text-left" >
-                                    <h:outputText  value="Name:" /> <br/>
-                                    <h:outputText  value="Anbieter:" /><br/>
-                                    <h:outputText  value="Mindestlaufzeit:" /><br/>
-                                    <h:outputText  value="Aktivierungsbedingnungen:" />
-
-
-                                </div>
-                                <div class="col-sm-6 text-left">
-                                    1 <h:outputText  value="#{tarifController.first.name}" style="font-weight: bold"/><br/>
-                                    2 <h:outputText  value="#{tarifController.first.anbieter}" style="font-weight: bold"/><br/>
-                                    3 <h:outputText  value="#{tarifController.first.getMindestlaufzeitInWorten}" style="font-weight: bold"/><br/>
-                                    4  <h:outputText  value="#{car.color}" style="font-weight: bold"/>
-                                </div>
-
-                                <div class="col-sm-1 text-left">
-                                    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-                                </div>
-                            </div>
-                        </p:tab>
 
                         <p:tab title="Zusammenfassung">
-                            <div class="row"><div class="col-sm-1 text-left">
-                                    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-                                </div>
-                                <div class="col-sm-4 text-left" >
-                                    <h:outputText  value="Name:" /> <br/>
-                                    <h:outputText  value="Anbieter:" /><br/>
-                                    <h:outputText  value="Mindestlaufzeit:" /><br/>
-                                    <h:outputText  value="Aktivierungsbedingnungen:" />
+                            <div class="row">
 
 
+                                <div class="col-sm-11 text-left">
+                                   
                                 </div>
-                                <div class="col-sm-6 text-left">
-                                    1 <h:outputText  value="#{tarifController.first.name}" style="font-weight: bold"/><br/>
-                                    2 <h:outputText  value="#{tarifController.first.anbieter}" style="font-weight: bold"/><br/>
-                                    3 <h:outputText  value="#{tarifController.first.getMindestlaufzeitInWorten}" style="font-weight: bold"/><br/>
-                                    4  <h:outputText  value="#{car.color}" style="font-weight: bold"/>
-                                </div>
+
 
                                 <div class="col-sm-1 text-left">
                                     <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
                                 </div>
                             </div>
+
                         </p:tab>
+
                     </p:tabView>
 
 

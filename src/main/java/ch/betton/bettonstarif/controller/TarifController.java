@@ -9,7 +9,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 
 /**
  *
@@ -18,6 +17,9 @@ import javax.faces.bean.ManagedProperty;
 @ManagedBean
 @ApplicationScoped
 public class TarifController {
+
+    //Diesen Pfad ersetzen --> README.md
+    String csvFile = "D:\\OneDrive\\Schule\\Jahr 3\\IDPA\\Handy Tarif\\Betton's Tarife\\src\\main\\java\\ch\\betton\\bettonstarif\\controller\\Tarife.CSV";
 
     //Alter
     private int age;
@@ -46,7 +48,6 @@ public class TarifController {
     //Daten Ausland
     private int opinion08 = 9;
 
-    String csvFile = "D:\\OneDrive\\Schule\\Jahr 3\\IDPA\\Handy Tarif\\Betton's Tarife\\src\\main\\java\\ch\\betton\\bettonstarif\\controller\\Tarife.CSV";
     BufferedReader br = null;
     String line = "";
     String cvsSplitBy = ",";
@@ -220,7 +221,7 @@ public class TarifController {
                 System.out.println(tarif.getArt());
                 System.out.println(tarif.getPreisProMonat());
                 System.out.println(tarif.getDatenSpeed());
-                System.out.println(tarif.getDatenvolumen());
+                System.out.println(tarif.getDatenVolumen());
                 System.out.println(tarif.getDatenKosten());
                 System.out.println(tarif.getDatenRoamingkosten());
                 System.out.println(tarif.getDatenRoamingInklusive());
@@ -375,49 +376,89 @@ public class TarifController {
                 System.out.println("Kill:");
                 System.out.println(tarif.getName());
                 System.out.println("+++++++++++++++++++++++++");
-                tarife.remove(tarif);
+                tarif.setKill(true);
             }
         }
 
-//        findTopThree();
+        System.out.println("////////////////////////");
+        System.out.println("Relevante:");
+
+        for (Tarif tarif : tarife) {
+            if (tarif.getKill() == false) {
+                System.out.println(tarif.getName());
+            }
+
+        }
+
+        System.out.println("////////////////////////");
+
+        findTopThree();
     }
 
     //Filter die drei günstigsten Tarife heraus
     public void findTopThree() {
 
+        int count = 0;
+        Double one = 10000.0;
+        Double two = 10000.0;
+        Double three = 10000.0;
         System.out.println("Top dreis Ausgeführt");
+
         for (Tarif tarif : tarife) {
-
-            System.out.println("Trifname: ");
-            System.out.print(tarif.getName());
-            Double one = 10000.0;
-            Double two = 10000.0;
-            Double three = 10000.0;
-
-            if (tarif.getPreisProMonat() <= one) {
-                one = tarif.getPreisProMonat();
-                first = tarif;
-                System.out.println("------------------------------------");
-                System.out.println("NR1");
-                System.out.println(tarif.getName());
-                System.out.println("------------------------------------");
-
-            } else if (tarif.getPreisProMonat() <= two) {
-                one = tarif.getPreisProMonat();
-                second = tarif;
-                System.out.println("------------------------------------");
-                System.out.println("NR2");
-                System.out.println(tarif.getName());
-                System.out.println("------------------------------------");
-
-            } else if (tarif.getPreisProMonat() <= three) {
-                one = tarif.getPreisProMonat();
-                third = tarif;
-                System.out.println("------------------------------------");
-                System.out.println("NR3 ");
-                System.out.println(tarif.getName());
-                System.out.println("------------------------------------");
+            if (tarif.getKill() == false) {
+                count++;
             }
+        }
+        System.out.println("###########################");
+        System.out.println(count);
+        System.out.println("###########################");
+        if (count > 2) {
+
+            for (Tarif tarif : tarife) {
+
+                if (tarif.getKill() == false) {
+
+                    if (tarif.getPreisProMonat() <= one) {
+                        one = tarif.getPreisProMonat();
+                        third = second;
+                        second = first;
+
+                        first = tarif;
+                        one = first.getPreisProMonat();
+                        System.out.println("------------------------------------");
+                        System.out.println("set NR1");
+                        System.out.println(first.getName());
+                        System.out.println(first.getPreisProMonat());
+                        System.out.println("------------------------------------");
+
+                    } else if (tarif.getPreisProMonat() <= two) {
+                        two = tarif.getPreisProMonat();
+                        second = third;
+                        second = tarif;
+                        System.out.println("------------------------------------");
+                        System.out.println("set NR2");
+                        System.out.println(second.getName());
+                        System.out.println(second.getPreisProMonat());
+                        System.out.println("------------------------------------");
+
+                    } else if (tarif.getPreisProMonat() <= three) {
+                        three = tarif.getPreisProMonat();
+                        third = tarif;
+                        System.out.println("------------------------------------");
+                        System.out.println("set NR3 ");
+                        System.out.println(third.getName());
+                        System.out.println(third.getPreisProMonat());
+                        System.out.println("------------------------------------");
+                    }
+                }
+            }
+
+            System.out.println("123--------------------123");
+            System.out.println("Bester: " + first.getName() + " " + first.getPreisProMonat());
+            System.out.println("Bester: " + second.getName() + " " + second.getPreisProMonat());
+            System.out.println("Bester: " + third.getName() + " " + third.getPreisProMonat());
+        } else {
+            System.out.println("ERROR NICHT GENUG TARIFE");
         }
 
     }
