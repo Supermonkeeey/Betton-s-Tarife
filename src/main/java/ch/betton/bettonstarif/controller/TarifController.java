@@ -189,7 +189,7 @@ public void setBgr1(String bgr1) {
         if (second.getAnbieter() == "Swisscom") {
             tmp = tmp + "Da Sie das Beste Netz der Schweiz geniessen wollen, wurde der Anbieter Swisscom gewählt, ";
         }
-        tmp = tmp + " Das Tarif " + second.getName() + " vom " + second.getAnbieter() + " ist ideal für Sie, da Sie ";
+        tmp = tmp + " Der Tarif " + second.getName() + " vom " + second.getAnbieter() + " ist ideal für Sie, da Sie ";
         if (opinion02 == 0) {
             tmp = tmp + " in der Schweiz keine Telefonate führen, ";
         } else if (opinion02 == 1) {
@@ -250,7 +250,7 @@ public void setBgr1(String bgr1) {
             tmp = tmp + "Da Sie das Beste Netz der Schweiz geniessen wollen, wurde der Anbieter Swisscom gewählt, ";
         }
         
-        tmp = tmp + "Das Tarif " + third.getName() + " vom " + third.getAnbieter() + " ist ideal für Sie, da Sie ";
+        tmp = tmp + "Der Tarif " + third.getName() + " vom " + third.getAnbieter() + " ist ideal für Sie, da Sie ";
         if (opinion02 == 0) {
             tmp = tmp + " in der Schweiz keine Telefonate führen, ";
         } else if (opinion02 == 1) {

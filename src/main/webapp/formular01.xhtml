@@ -52,14 +52,19 @@
 
 
                     <h:form >
+                        
+                        
+                        <div class="col-sm-5 text-middle" ></div>
+                        <div class="col-sm-1 text-middle" >
+                            <h:panelGrid columns="1" style="margin-bottom: 10px">
+                                <p:inputText id="txt1" value="#{tarifController.age}" />
+                                <p:slider for="txt1" />
+                            </h:panelGrid>
+                        </div>
 
-                        <h:panelGrid columns="1" style="margin-bottom: 10px">
-                            <p:inputText id="txt1" value="#{tarifController.age}" />
-                            <p:slider for="txt1" />
-                        </h:panelGrid>
 
                         <br/><br/>
-
+           
                         <h:commandButton class="btn btn-lg btn-secondary" value="Weiter" action="formular011" >
 
                         </h:commandButton>
