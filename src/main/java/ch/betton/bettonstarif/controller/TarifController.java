@@ -124,12 +124,6 @@ public class TarifController {
         this.opinion08 = opinion08;
     }
 
-    public void keinAusland() {
-        opinion06 = 0;
-        opinion07 = 0;
-        opinion08 = 0;
-    }
-
     public int getHans() {
         return hans;
     }
@@ -138,11 +132,8 @@ public class TarifController {
         this.hans = hans;
     }
 
-    @ManagedProperty("#{first}")
     Tarif first;
-    @ManagedProperty("#{second}")
     Tarif second;
-    @ManagedProperty("#{third}")
     Tarif third;
 
     public Tarif getFirst() {
@@ -169,6 +160,12 @@ public class TarifController {
         this.third = third;
     }
 
+    //End of variables
+    
+    
+    
+    //Start of methods
+    
     private ObservableList<Tarif> tarife = FXCollections.observableArrayList();
 
     //Füllt die tarife - ObservableList mit einträgen, dies sorgt für eine einfache Beartbarkeit der Tarife
@@ -272,6 +269,7 @@ public class TarifController {
         }
     }
 
+    //Testet ob die Daten eingetragen sind
     public void testDaten() {
         System.out.println("------------------------------------");
         System.out.println("Alter: " + age);
@@ -288,67 +286,89 @@ public class TarifController {
 
     //Filtert alle nicht relevanten Tarife heraus
     public void findRelevant() {
+        testDaten();
         for (Tarif tarif : tarife) {
-
+            boolean kill = false;
             if (tarif.getAnrufInlandIndex() < opinion02) {
-                tarife.remove(tarif);
-                System.out.println("------------------------------------");
-                System.out.println(tarif.getName());
-                System.out.println("------------------------------------");
-                
-            } else if (tarif.getDatenInlandIndex() < opinion04) {
-                tarife.remove(tarif);
-                System.out.println("------------------------------------");
-                System.out.println(tarif.getName());
-                System.out.println("------------------------------------");
-            } else if (tarif.getsMSMMSInlandIndex() < opinion03) {
-                tarife.remove(tarif);
-                System.out.println("------------------------------------");
-                System.out.println(tarif.getName());
-                System.out.println("------------------------------------");
-            } else if (tarif.getAnbieter() == "Salt") {
-                if (opinion05 == 1) {
-                    tarife.remove(tarif);
-                    System.out.println("------------------------------------");
-                    System.out.println(tarif.getName());
-                    System.out.println("------------------------------------");
-                }
-
-            } else if (tarif.getAlterBeschrenkung() > age) {
-                tarife.remove(tarif);
+                kill = true;
                 System.out.println("------------------------------------");
                 System.out.println(tarif.getName());
                 System.out.println("------------------------------------");
 
-            } else if (tarif.getMindestlaufzeit() != duration) {
-                if (tarif.getMindestlaufzeit() == 0) {
-                } else {
-                    tarife.remove(tarif);
-                    System.out.println("------------------------------------");
-                    System.out.println(tarif.getName());
-                    System.out.println("------------------------------------");
-                }
-            } else if (tarif.getAnrufAuslandIndex() < opinion06) {
-                tarife.remove(tarif);
-                System.out.println("------------------------------------");
-                System.out.println(tarif.getName());
-                System.out.println("------------------------------------");
-            } else if (tarif.getsMSMMSAuslandIndex() < opinion07) {
-                tarife.remove(tarif);
-                System.out.println("------------------------------------");
-                System.out.println(tarif.getName());
-                System.out.println("------------------------------------");
-            } else if (tarif.getDatenAuslandIndex() < opinion08) {
-                tarife.remove(tarif);
+            }
+
+            if (tarif.getDatenInlandIndex() < opinion04) {
+                kill = true;
                 System.out.println("------------------------------------");
                 System.out.println(tarif.getName());
                 System.out.println("------------------------------------");
             }
+
+            if (tarif.getsMSMMSInlandIndex() < opinion03) {
+                kill = true;
+                System.out.println("------------------------------------");
+                System.out.println(tarif.getName());
+                System.out.println("------------------------------------");
+            }
+
+            if (tarif.getAnbieter() == "Salt") {
+                if (opinion05 == 1) {
+                    kill = true;
+                    System.out.println("------------------------------------");
+                    System.out.println(tarif.getName());
+                    System.out.println("------------------------------------");
+                }
+
+            }
+
+            if (tarif.getAlterBeschrenkung() > age) {
+                kill = true;
+                System.out.println("------------------------------------");
+                System.out.println(tarif.getName());
+                System.out.println("------------------------------------");
+
+            }
+
+            if (tarif.getMindestlaufzeit() != duration) {
+                if (tarif.getMindestlaufzeit() == 0) {
+                } else {
+                    kill = true;
+                    System.out.println("------------------------------------");
+                    System.out.println(tarif.getName());
+                    System.out.println("------------------------------------");
+                }
+            }
+
+            if (tarif.getAnrufAuslandIndex() < opinion06) {
+                kill = true;
+
+                System.out.println("------------------------------------");
+                System.out.println(tarif.getName());
+                System.out.println("------------------------------------");
+            }
+
+            if (tarif.getsMSMMSAuslandIndex() < opinion07) {
+                kill = true;
+                System.out.println("------------------------------------");
+                System.out.println(tarif.getName());
+                System.out.println("------------------------------------");
+            }
+
+            if (tarif.getDatenAuslandIndex() < opinion08) {
+                kill = true;
+                System.out.println("------------------------------------");
+                System.out.println(tarif.getName());
+                System.out.println("------------------------------------");
+            }
+
+//            if (kill) {
+//                tarife.remove(tarif);
+//            }
         }
-        findTopThree();
+//        findTopThree();
     }
 
-//Filter die drei günstigsten Tarife heraus
+    //Filter die drei günstigsten Tarife heraus
     public void findTopThree() {
 
         System.out.println("Top dreis Ausgeführt");
@@ -386,5 +406,16 @@ public class TarifController {
             }
         }
 
+    }
+
+    //Alle opinions mit Ausland = 0
+    public void keinAusland() {
+        opinion06 = 0;
+        opinion07 = 0;
+        opinion08 = 0;
+
+        testDaten();
+
+        findRelevant();
     }
 }
