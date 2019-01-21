@@ -58,7 +58,7 @@ public class TarifController {
 
     public String getBgr1() {
 
-        String tmp = "" ;
+        String tmp = "";
 
         if (age <= first.getAlterBeschrenkung()) {
 
@@ -132,7 +132,7 @@ public class TarifController {
 
     public String getBgr2() {
 
-        String tmp = "" ;
+        String tmp = "";
 
         if (age <= second.getAlterBeschrenkung()) {
 
@@ -206,7 +206,7 @@ public class TarifController {
 
     public String getBgr3() {
 
-        String tmp = "" ;
+        String tmp = "";
 
         if (age <= third.getAlterBeschrenkung()) {
 
@@ -281,7 +281,6 @@ public class TarifController {
     BufferedReader br = null;
     String line = "";
     String cvsSplitBy = ",";
-    int hans = 421;
 
     public int getAge() {
         return age;
@@ -353,14 +352,6 @@ public class TarifController {
 
     public void setOpinion08(int opinion08) {
         this.opinion08 = opinion08;
-    }
-
-    public int getHans() {
-        return hans;
-    }
-
-    public void setHans(int hans) {
-        this.hans = hans;
     }
 
     Tarif first;

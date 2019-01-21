@@ -6,7 +6,6 @@ package ch.betton.bettonstarif.model;
  */
 public class Tarif {
 //0 bis 4
-
     private String anbieter;
     private String name;
     private String art;
