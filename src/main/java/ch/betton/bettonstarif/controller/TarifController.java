@@ -54,175 +54,145 @@ public class TarifController {
 
     private String bgr3;
 
+    private String scm = "Swisscom";
+
     public String getBgr1() {
 
-        String tmp = null;
+        String tmp = "" ;
 
         if (age <= first.getAlterBeschrenkung()) {
-            if (first.getAlterBeschrenkung() != 999) {
 
-            } else {
-            
             tmp = "Da Sie noch " + age + " Jahre jung sind, können Sie von diesem Jugend-Tarif Profitieren!\n\n";
         }
-    }
 
-    if (first.getAnbieter () 
-        == "Swisscom") {
-            tmp = tmp + "Da Sie das Beste Netz der Schweiz geniessen wollen, wurde der Anbieter Swisscom gewählt, ";
-    }
-    tmp  = tmp + " Das Tarif " + first.getName() + " vom " + first.getAnbieter() + " ist ideal für Sie, da Sie ";
-    if (opinion02
+        if (first.getAnbieter().equals(scm)) {
+            tmp = tmp + "Um das Beste Netz der Schweiz geniessen zu können, wurde der Anbieter Swisscom gewählt. ";
+        }
 
-    
-        == 0) {
+        tmp = tmp + " Der Tarif  " + first.getName() + " von " + first.getAnbieter() + " ist ideal für Sie, da Sie ";
+
+        if (opinion02
+                == 0) {
             tmp = tmp + " in der Schweiz keine Telefonate führen, ";
-    }
-    else if (opinion02
-
-    
-        == 1) {
+        } else if (opinion02
+                == 1) {
             tmp = tmp + " in der Schweiz wenige Telefonate führen, ";
-    }
-    else if (opinion02
-
-    
-        == 2) {
+        } else if (opinion02
+                == 2) {
             tmp = tmp + " in der Schweiz mässig Telefonate führen, ";
-    }
-    else if (opinion02
-
-    
-        == 3) {
+        } else if (opinion02
+                == 3) {
             tmp = tmp + " in der Schweiz viele Telefonate führen, ";
-    }
-    else if (opinion02
-
-    
-        == 4) {
+        } else if (opinion02
+                == 4) {
             tmp = tmp + " in der Schweiz sehr viele Telefonate führen, ";
-    }
+        }
 
-    if (opinion03
-
-    
-        == 0) {
+        if (opinion03
+                == 0) {
             tmp = tmp + " keine SMS/MMS versenden und ";
-    }
-    else if (opinion03
-
-    
-        == 1) {
+        } else if (opinion03
+                == 1) {
             tmp = tmp + " wenige SMS/MMS versenden und ";
-    }
-    else if (opinion03
-
-    
-        == 2) {
+        } else if (opinion03
+                == 2) {
             tmp = tmp + " mässig SMS/MMS versenden und ";
-    }
-    else if (opinion03
-
-    
-        == 3) {
+        } else if (opinion03
+                == 3) {
             tmp = tmp + " viele SMS/MMS versenden und ";
-    }
-    else if (opinion03
-
-    
-        == 4) {
+        } else if (opinion03
+                == 4) {
             tmp = tmp + " sehr viele SMS/MMS versenden und ";
-    }
+        }
 
-    if (opinion04
-
-    
-        == 0) {
+        if (opinion04
+                == 0) {
             tmp = tmp + " keine mobilen Daten verbrauchen wollen. ";
-    }
-    else if (opinion04
-
-    
-        == 1) {
+        } else if (opinion04
+                == 1) {
             tmp = tmp + " wenige mobilen Daten verbrauchen wollen. ";
-    }
-    else if (opinion04
-
-    
-        == 2) {
+        } else if (opinion04
+                == 2) {
             tmp = tmp + " mässig mobilen Daten verbrauchen wollen. ";
-    }
-    else if (opinion04
-
-    
-        == 3) {
+        } else if (opinion04
+                == 3) {
             tmp = tmp + " viele mobilen Daten verbrauchen wollen. ";
-    }
-    else if (opinion04
-
-    
-        == 4) {
+        } else if (opinion04
+                == 4) {
             tmp = tmp + " sehr viele mobilen Daten verbrauchen wollen. ";
+        }
+
+        System.out.println(tmp);
+        return tmp;
     }
 
-    System.out.println (tmp);
-    return tmp ;
-}
-
-public void setBgr1(String bgr1) {
+    public void setBgr1(String bgr1) {
         this.bgr1 = bgr1;
     }
 
     public String getBgr2() {
 
-        String tmp = null;
+        String tmp = "" ;
 
         if (age <= second.getAlterBeschrenkung()) {
-           if (second.getAlterBeschrenkung() != 999) {
 
-            } else {
-            
             tmp = "Da Sie noch " + age + " Jahre jung sind, können Sie von diesem Jugend-Tarif Profitieren!\n\n";
         }
+
+        if (second.getAnbieter().equals(scm)) {
+            tmp = tmp + "Um das Beste Netz der Schweiz geniessen zu können, wurde der Anbieter Swisscom gewählt. ";
         }
 
-        if (second.getAnbieter() == "Swisscom") {
-            tmp = tmp + "Da Sie das Beste Netz der Schweiz geniessen wollen, wurde der Anbieter Swisscom gewählt, ";
-        }
-        tmp = tmp + " Der Tarif " + second.getName() + " vom " + second.getAnbieter() + " ist ideal für Sie, da Sie ";
-        if (opinion02 == 0) {
+        tmp = tmp + " Der Tarif  " + second.getName() + " von " + second.getAnbieter() + " ist ideal für Sie, da Sie ";
+
+        if (opinion02
+                == 0) {
             tmp = tmp + " in der Schweiz keine Telefonate führen, ";
-        } else if (opinion02 == 1) {
+        } else if (opinion02
+                == 1) {
             tmp = tmp + " in der Schweiz wenige Telefonate führen, ";
-        } else if (opinion02 == 2) {
+        } else if (opinion02
+                == 2) {
             tmp = tmp + " in der Schweiz mässig Telefonate führen, ";
-        } else if (opinion02 == 3) {
+        } else if (opinion02
+                == 3) {
             tmp = tmp + " in der Schweiz viele Telefonate führen, ";
-        } else if (opinion02 == 4) {
+        } else if (opinion02
+                == 4) {
             tmp = tmp + " in der Schweiz sehr viele Telefonate führen, ";
         }
 
-        if (opinion03 == 0) {
+        if (opinion03
+                == 0) {
             tmp = tmp + " keine SMS/MMS versenden und ";
-        } else if (opinion03 == 1) {
+        } else if (opinion03
+                == 1) {
             tmp = tmp + " wenige SMS/MMS versenden und ";
-        } else if (opinion03 == 2) {
+        } else if (opinion03
+                == 2) {
             tmp = tmp + " mässig SMS/MMS versenden und ";
-        } else if (opinion03 == 3) {
+        } else if (opinion03
+                == 3) {
             tmp = tmp + " viele SMS/MMS versenden und ";
-        } else if (opinion03 == 4) {
+        } else if (opinion03
+                == 4) {
             tmp = tmp + " sehr viele SMS/MMS versenden und ";
         }
 
-        if (opinion04 == 0) {
+        if (opinion04
+                == 0) {
             tmp = tmp + " keine mobilen Daten verbrauchen wollen. ";
-        } else if (opinion04 == 1) {
+        } else if (opinion04
+                == 1) {
             tmp = tmp + " wenige mobilen Daten verbrauchen wollen. ";
-        } else if (opinion04 == 2) {
+        } else if (opinion04
+                == 2) {
             tmp = tmp + " mässig mobilen Daten verbrauchen wollen. ";
-        } else if (opinion04 == 3) {
+        } else if (opinion04
+                == 3) {
             tmp = tmp + " viele mobilen Daten verbrauchen wollen. ";
-        } else if (opinion04 == 4) {
+        } else if (opinion04
+                == 4) {
             tmp = tmp + " sehr viele mobilen Daten verbrauchen wollen. ";
         }
 
@@ -235,55 +205,68 @@ public void setBgr1(String bgr1) {
     }
 
     public String getBgr3() {
-        String tmp = "";
+
+        String tmp = "" ;
 
         if (age <= third.getAlterBeschrenkung()) {
-           if (third.getAlterBeschrenkung() != 999) {
 
-            } else {
-            
             tmp = "Da Sie noch " + age + " Jahre jung sind, können Sie von diesem Jugend-Tarif Profitieren!\n\n";
         }
+
+        if (third.getAnbieter().equals(scm)) {
+            tmp = tmp + "Um das Beste Netz der Schweiz geniessen zu können, wurde der Anbieter Swisscom gewählt. ";
         }
 
-        if (third.getAnbieter() == "Swisscom") {
-            tmp = tmp + "Da Sie das Beste Netz der Schweiz geniessen wollen, wurde der Anbieter Swisscom gewählt, ";
-        }
-        
-        tmp = tmp + "Der Tarif " + third.getName() + " vom " + third.getAnbieter() + " ist ideal für Sie, da Sie ";
-        if (opinion02 == 0) {
+        tmp = tmp + " Der Tarif  " + third.getName() + " von " + third.getAnbieter() + " ist ideal für Sie, da Sie ";
+
+        if (opinion02
+                == 0) {
             tmp = tmp + " in der Schweiz keine Telefonate führen, ";
-        } else if (opinion02 == 1) {
+        } else if (opinion02
+                == 1) {
             tmp = tmp + " in der Schweiz wenige Telefonate führen, ";
-        } else if (opinion02 == 2) {
+        } else if (opinion02
+                == 2) {
             tmp = tmp + " in der Schweiz mässig Telefonate führen, ";
-        } else if (opinion02 == 3) {
+        } else if (opinion02
+                == 3) {
             tmp = tmp + " in der Schweiz viele Telefonate führen, ";
-        } else if (opinion02 == 4) {
+        } else if (opinion02
+                == 4) {
             tmp = tmp + " in der Schweiz sehr viele Telefonate führen, ";
         }
 
-        if (opinion03 == 0) {
+        if (opinion03
+                == 0) {
             tmp = tmp + " keine SMS/MMS versenden und ";
-        } else if (opinion03 == 1) {
+        } else if (opinion03
+                == 1) {
             tmp = tmp + " wenige SMS/MMS versenden und ";
-        } else if (opinion03 == 2) {
+        } else if (opinion03
+                == 2) {
             tmp = tmp + " mässig SMS/MMS versenden und ";
-        } else if (opinion03 == 3) {
+        } else if (opinion03
+                == 3) {
             tmp = tmp + " viele SMS/MMS versenden und ";
-        } else if (opinion03 == 4) {
+        } else if (opinion03
+                == 4) {
             tmp = tmp + " sehr viele SMS/MMS versenden und ";
         }
 
-        if (opinion04 == 0) {
+        if (opinion04
+                == 0) {
             tmp = tmp + " keine mobilen Daten verbrauchen wollen. ";
-        } else if (opinion04 == 1) {
+        } else if (opinion04
+                == 1) {
             tmp = tmp + " wenige mobilen Daten verbrauchen wollen. ";
-        } else if (opinion04 == 2) {
+        } else if (opinion04
+                == 2) {
             tmp = tmp + " mässig mobilen Daten verbrauchen wollen. ";
-        } else if (opinion04 == 3) {
+        } else if (opinion04
+                == 3) {
             tmp = tmp + " viele mobilen Daten verbrauchen wollen. ";
-        } else if (opinion04 == 4) {
+        } else if (opinion04
+                == 4) {
             tmp = tmp + " sehr viele mobilen Daten verbrauchen wollen. ";
         }
 
@@ -417,6 +400,7 @@ public void setBgr1(String bgr1) {
     public void fillList() {
         int count = 1;
         System.out.println("Liste wird gefüllt");
+        tarife.clear();
         try {
 
             br = new BufferedReader(new FileReader(csvFile));
@@ -531,6 +515,7 @@ public void setBgr1(String bgr1) {
     //Filtert alle nicht relevanten Tarife heraus
     public void findRelevant() {
         testDaten();
+
         for (Tarif tarif : tarife) {
             boolean kill = false;
             if (tarif.getAnrufInlandIndex() < opinion02) {
@@ -545,7 +530,7 @@ public void setBgr1(String bgr1) {
             if (tarif.getDatenInlandIndex() < opinion04) {
                 kill = true;
                 System.out.println("------------------------------------");
-                System.out.println("nicht genug daten inland");
+                System.out.println("nicht genug dDaten inland");
                 System.out.println(tarif.getName());
                 System.out.println("------------------------------------");
             }
@@ -558,22 +543,24 @@ public void setBgr1(String bgr1) {
                 System.out.println("------------------------------------");
             }
 
-            if (tarif.getAnbieter() == "Salt") {
+            if (tarif.getAnbieter().equals(scm) == false) {
+                System.out.println("Nicht " + scm);
                 if (opinion05 == 1) {
                     kill = true;
                     System.out.println("------------------------------------");
                     System.out.println("nicht genug netz");
-                    System.out.println(tarif.getName());
+                    System.out.println(tarif.getAnbieter() + ": ");
+                    System.out.print(tarif.getName());
                     System.out.println("------------------------------------");
                 }
 
             }
 
             if (age > tarif.getAlterBeschrenkung()) {
-
                 if (tarif.getAlterBeschrenkung() == 0) {
 
                 } else {
+
                     kill = true;
                     System.out.println("------------------------------------");
                     System.out.println("nicht jung genug");
@@ -582,7 +569,7 @@ public void setBgr1(String bgr1) {
                 }
             }
 
-            if (tarif.getMindestlaufzeit() != duration) {
+            if (tarif.getMindestlaufzeit().equals(duration) != true) {
                 if (duration == 0) {
                 } else {
                     kill = true;
@@ -666,11 +653,15 @@ public void setBgr1(String bgr1) {
                 if (tarif.getKill() == false) {
 
                     if (tarif.getPreisProMonat() <= one) {
+
+                        three = two;
+                        two = one;
                         one = tarif.getPreisProMonat();
+
                         third = second;
                         second = first;
-
                         first = tarif;
+
                         one = first.getPreisProMonat();
                         System.out.println("------------------------------------");
                         System.out.println("set NR1");
@@ -679,9 +670,13 @@ public void setBgr1(String bgr1) {
                         System.out.println("------------------------------------");
 
                     } else if (tarif.getPreisProMonat() <= two) {
+
+                        three = two;
                         two = tarif.getPreisProMonat();
-                        second = third;
+
+                        third = second;
                         second = tarif;
+
                         System.out.println("------------------------------------");
                         System.out.println("set NR2");
                         System.out.println(second.getName());
@@ -689,8 +684,10 @@ public void setBgr1(String bgr1) {
                         System.out.println("------------------------------------");
 
                     } else if (tarif.getPreisProMonat() <= three) {
+
                         three = tarif.getPreisProMonat();
                         third = tarif;
+
                         System.out.println("------------------------------------");
                         System.out.println("set NR3 ");
                         System.out.println(third.getName());
